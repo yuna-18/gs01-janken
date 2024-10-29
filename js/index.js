@@ -10,6 +10,6 @@ $(function () {
     // モード選択非表示・ダイアログ非表示
     $(".pay__container").removeClass("is-active");
     $(".dialog__container").removeClass("is-active");
-    
+    $(".npc__outer").addClass("is-active");
   });
 })

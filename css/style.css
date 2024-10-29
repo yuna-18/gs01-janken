@@ -149,7 +149,40 @@ main .bg .bg__container {
   width: 100%;
 }
 .battle__container .npc__outer {
+  opacity: 0;
+  visibility: hidden;
+}
+.battle__container .npc__outer.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.battle__container .npc__outer .chara__inner {
+  width: 300px;
+  margin: -58% auto 0;
+}
+.battle__container .npc__outer .talk__inner {
+  position: relative;
+  padding: 0px 5px;
+  width: 450px;
+  height: 225px;
+  line-height: 150px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-left: 60%;
+  margin-top: -25%;
+}
+.battle__container .npc__outer .talk__inner:before {
+  content: "";
   position: absolute;
+  top: 50%;
+  left: -27px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #fff;
+  z-index: 0;
 }
 .battle__container .btn__outer {
   display: flex;

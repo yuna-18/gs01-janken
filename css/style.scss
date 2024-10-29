@@ -58,7 +58,7 @@ main {
   padding: 20px 60px;
   opacity: 0;
   visibility: hidden;
-  
+
   &.is-active {
     opacity: 1;
     visibility: visible;
@@ -82,6 +82,7 @@ main {
 
       &.pay-btn {
         width: 100px;
+
         &.no-pay {
           color: red;
           font-weight: bold;
@@ -90,6 +91,7 @@ main {
           border-radius: 50%;
           padding: 5px;
         }
+
         &:nth-of-type(5) {
           width: 150px;
         }
@@ -105,23 +107,25 @@ main {
   width: 100%;
   height: 100%;
   text-align: center;
-  background: rgba(0,0,0,50%);
+  background: rgba(0, 0, 0, 50%);
   padding: 40px 20px;
   overflow: auto;
   opacity: 0;
   visibility: hidden;
   transition: .3s;
-  
+
   &.is-active {
     opacity: 1;
     visibility: visible;
   }
+
   .dialog__outer {
     position: relative;
     width: fit-content;
     margin-top: 25%;
     left: 50%;
     transform: translateX(-50%);
+
     .close-btn {
       position: absolute;
       top: 8px;
@@ -129,39 +133,79 @@ main {
       font-size: 30px;
       cursor: pointer;
     }
+
     .dialog__content {
       background: #fff;
       width: 600px;
       padding: 30px 40px;
-      
+
       .btn__outer {
         display: flex;
         width: fit-content;
         margin: 0 auto;
         margin-top: 20px;
-        
+
         .dialog-btn {
           width: 100px;
           height: 40px;
-          
-          &+.dialog-btn {
+
+          & + .dialog-btn {
             margin-left: 30px;
           }
         }
       }
     }
   }
-  
+
 }
 
 .battle__container {
   position: absolute;
   width: 100%;
-  
+
   .npc__outer {
-    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .chara__inner {
+      width: 300px;
+      margin: -58% auto 0;
+
+    }
+
+    .talk__inner {
+      position: relative;
+      // display: inline-block;
+      padding: 0px 5px;
+      width: 450px;
+      height: 225px;
+      line-height: 150px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: #fff;
+      border-radius: 50%;
+      margin-left: 60%;
+      margin-top: -25%;
+    }
+
+    .talk__inner:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -27px;
+      margin-top: -15px;
+      border: 15px solid transparent;
+      border-right: 15px solid #fff;
+      z-index: 0;
+    }
   }
-  
+
   .btn__outer {
     display: flex;
     justify-content: center;
@@ -171,17 +215,17 @@ main {
     transform: translateX(-50%);
     opacity: 0;
     visibility: hidden;
-    
+
     &.is-active {
       visibility: visible;
       opacity: 1;
     }
-    
+
     .battle-btn {
       width: 200px;
       padding: 20px;
       border-radius: 50%;
-      
+
       & + .battle-btn {
         margin-left: 100px;
       }
