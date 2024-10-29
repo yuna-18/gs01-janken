@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>散歩</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <div class="bg">
+      <div class="bg__container">
+        <img src="img/opening.png" alt="神社">
+        <img class="hidden" src="img/pay.png" alt="賽銭箱">
+      </div>
+    </div>
+    <div class="contents__wrapper">
+      <div class="pay__container is-active">
+        <div class="text__outer">
+          <p>お賽銭を入れよう！</p>
+        </div>
+        <div class="btn__outer">
+          <button class="btn pay-btn no-pay">入れない</button>
+          <button class="btn pay-btn"><img src="img/money_10.png" alt="10円"></button>
+          <button class="btn pay-btn"><img src="img/money_50.png" alt="50円"></button>
+          <button class="btn pay-btn"><img src="img/money_100.png" alt="100円"></button>
+          <button class="btn pay-btn"><img src="img/money_1000_kitazato.png" alt="1000money_1000_kitazato.png円"></button>
+        </div>
+      </div>
+      <div class="dialog__container">
+        <div class="dialog__outer">
+          <div class="close-btn dialog-btn">✕</div>
+          <div class="dialog__content">
+            <p>この金額でよろしいですか？</p>
+            <div class="btn__outer">
+              <button class="dialog-btn yes">はい</button>
+              <button class="dialog-btn no">いいえ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="battle__container">
+        <div class="npc__outer">
+          
+        </div>
+        
+        <div class="btn__outer">
+          <button class="battle-btn gu"><img src="img/janken_gu.png" alt="グー"></button>
+          <button class="battle-btn choki"><img src="img/janken_choki.png" alt="チョキ"></button>
+          <button class="battle-btn pa"><img src="img/janken_pa.png" alt="パー"></button>
+        </div>
+      </div>
+      
+      <div class="result__container">
+        
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

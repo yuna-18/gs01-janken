@@ -1,0 +1,190 @@
+// ---common---
+.hidden {
+  // visibility: hidden;
+  display: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+main {
+  width: 100%;
+  position: relative;
+
+  .bg {
+    background-image: url(../img/opening__bg.png);
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+
+    .bg__container {
+      position: absolute;
+      width: 750px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -95px;
+    }
+
+  }
+}
+
+.pay__container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px 60px;
+  opacity: 0;
+  visibility: hidden;
+  
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .text__outer {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .btn__outer {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 45px;
+    width: fit-content;
+    margin-top: 20px;
+
+    button {
+
+      &.pay-btn {
+        width: 100px;
+        &.no-pay {
+          color: red;
+          font-weight: bold;
+          font-size: 20px;
+          border: 2px solid #000;
+          border-radius: 50%;
+          padding: 5px;
+        }
+        &:nth-of-type(5) {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+.dialog__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: rgba(0,0,0,50%);
+  padding: 40px 20px;
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .dialog__outer {
+    position: relative;
+    width: fit-content;
+    margin-top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 13px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .dialog__content {
+      background: #fff;
+      width: 600px;
+      padding: 30px 40px;
+      
+      .btn__outer {
+        display: flex;
+        width: fit-content;
+        margin: 0 auto;
+        margin-top: 20px;
+        
+        .dialog-btn {
+          width: 100px;
+          height: 40px;
+          
+          &+.dialog-btn {
+            margin-left: 30px;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+.battle__container {
+  position: absolute;
+  width: 100%;
+  
+  .npc__outer {
+    position: absolute;
+  }
+  
+  .btn__outer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    
+    &.is-active {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .battle-btn {
+      width: 200px;
+      padding: 20px;
+      border-radius: 50%;
+      
+      & + .battle-btn {
+        margin-left: 100px;
+      }
+    }
+  }
+}
