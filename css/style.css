@@ -1,7 +1,3 @@
-.hidden {
-  display: none;
-}
-
 img {
   display: block;
   width: 100%;
@@ -23,8 +19,8 @@ button {
 }
 
 main {
-  width: 100%;
-  height: 100vh;
+  width: 1440px;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
@@ -340,4 +336,4 @@ main .bg .bg__container {
 }
 .text__container p.ready {
   font-size: 100px;
-}/*# sourceMappingURL=style.css.map */
+}
