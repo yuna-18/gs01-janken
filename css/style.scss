@@ -230,8 +230,26 @@ main {
       }
     }
     
+    .npc-choice__inner {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: 100px;
+      left: 150px;
+      
+      .battle-btn.npc {
+        opacity: 0;
+        visibility: hidden;
+        
+        &.is-active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    
     .hp__inner {
-      border: 3px solid black;
+      border: 5px solid navy;
       background-color: #fff;
       width: 200px;
       height: 200px;
@@ -252,16 +270,55 @@ main {
         font-weight: bold;
         text-align: center;
         line-height: 2;
+        color: navy;
         &:nth-of-type(1) {
           margin-top: 25px;
         }
         
-        &.hp-num {
+        &.hp-num__npc {
           font-size: 40px;
         }
       }
     }
-
+    .battle-btn.npc {
+      background-color: navy;
+      border-radius: 50%;
+      padding: 30px;
+    }
+  }
+  
+  
+  .hp__inner.player {
+    border: 5px solid red;
+    background-color: #fff;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 500px;
+    left: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      transition: .3s;
+    }
+    p {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 2;
+      color: red;
+      &:nth-of-type(1) {
+        margin-top: 25px;
+      }
+      
+      &.hp-num__npc {
+        font-size: 40px;
+      }
+    }
   }
 
   .btn__outer {
@@ -278,15 +335,37 @@ main {
       visibility: visible;
       opacity: 1;
     }
+    
+    &.is-select {
+      background-color: red;
+    }
 
     .battle-btn {
       width: 200px;
-      padding: 20px;
+      padding: 30px;
+      background-color: #fff;
       border-radius: 50%;
+      
+      &:hover {
+        background-color: red;
+      }
 
       & + .battle-btn {
         margin-left: 100px;
       }
     }
+  }
+}
+
+.text__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  
+  p {
+    font-size: 110px;
+    font-weight: bold;
   }
 }

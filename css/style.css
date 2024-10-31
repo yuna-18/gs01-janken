@@ -208,8 +208,23 @@ main .bg .bg__container {
   color: red;
   font-size: 24px;
 }
+.battle__container .npc__outer .npc-choice__inner {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 100px;
+  left: 150px;
+}
+.battle__container .npc__outer .npc-choice__inner .battle-btn.npc {
+  opacity: 0;
+  visibility: hidden;
+}
+.battle__container .npc__outer .npc-choice__inner .battle-btn.npc.is-active {
+  opacity: 1;
+  visibility: visible;
+}
 .battle__container .npc__outer .hp__inner {
-  border: 3px solid black;
+  border: 5px solid navy;
   background-color: #fff;
   width: 200px;
   height: 200px;
@@ -230,11 +245,47 @@ main .bg .bg__container {
   font-weight: bold;
   text-align: center;
   line-height: 2;
+  color: navy;
 }
 .battle__container .npc__outer .hp__inner p:nth-of-type(1) {
   margin-top: 25px;
 }
-.battle__container .npc__outer .hp__inner p.hp-num {
+.battle__container .npc__outer .hp__inner p.hp-num__npc {
+  font-size: 40px;
+}
+.battle__container .npc__outer .battle-btn.npc {
+  background-color: navy;
+  border-radius: 50%;
+  padding: 30px;
+}
+.battle__container .hp__inner.player {
+  border: 5px solid red;
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 500px;
+  left: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.battle__container .hp__inner.player.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
+}
+.battle__container .hp__inner.player p {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2;
+  color: red;
+}
+.battle__container .hp__inner.player p:nth-of-type(1) {
+  margin-top: 25px;
+}
+.battle__container .hp__inner.player p.hp-num__npc {
   font-size: 40px;
 }
 .battle__container .btn__outer {
@@ -251,11 +302,30 @@ main .bg .bg__container {
   visibility: visible;
   opacity: 1;
 }
+.battle__container .btn__outer.is-select {
+  background-color: red;
+}
 .battle__container .btn__outer .battle-btn {
   width: 200px;
-  padding: 20px;
+  padding: 30px;
+  background-color: #fff;
   border-radius: 50%;
+}
+.battle__container .btn__outer .battle-btn:hover {
+  background-color: red;
 }
 .battle__container .btn__outer .battle-btn + .battle-btn {
   margin-left: 100px;
+}
+
+.text__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.text__container p {
+  font-size: 110px;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
