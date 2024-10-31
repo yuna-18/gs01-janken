@@ -1,9 +1,9 @@
 // 変数
 let gameInfo = {
   damage: {
-    win: 5,
+    win: -5,
     draw: 0,
-    lose: -5,
+    lose: 5,
   },
   hardExtra: {
     level: 5,
@@ -174,6 +174,26 @@ function battleJudge (playerChoice, npcChoice) {
   }
 }
 
+function calcDamage (damage) {
+  // lose
+  if (damage > 0) {
+    plHP -= damage;
+    $(".hp-num__player").text(plHP);
+    if (plHP <= 0) {
+      $(".ready").html("");
+      $(".result").html("YOU LOSE").css("color", "navy");
+    }
+    // win
+  } else if (damage < 0) {
+    npcHP += damage;
+    $(".hp-num__npc").text(npcHP);
+    if (npcHP <= 0) {
+      $(".ready").html("");
+      $(".result").html("YOU WIN").css("color", "red");
+    }
+  }
+}
+
 // ゲーム進行管理
 $(function () {
   let offeringMoney = "";
@@ -200,38 +220,38 @@ $(function () {
     $(".npc__outer, .talk__inner").addClass("is-active");
 
     // 戦闘準備画面
-    // setTimeout(function () {
+    setTimeout(function () {
     $(".talk__inner").removeClass("is-active");
-    //   $(".battle__container .btn__outer").addClass("is-active");
-    //   $(".hp__inner").addClass("is-active");
-    // }, gameInfo[mode].delayTime);
-    $(".battle__container .btn__outer").addClass("is-active");
-    $(".hp__inner").addClass("is-active");
+      $(".battle__container .btn__outer").addClass("is-active");
+      $(".hp__inner").addClass("is-active");
+      $(".text__container").addClass("is-active");
+      $(".ready").html("じゃんけん…");
+    }, gameInfo[mode].delayTime);
   });
 
-  // ダメージ処理
+
+  // 戦闘中
   $(".battle-btn.player").on("click", function () {
     if (plHP > 0 && npcHP > 0) {
+      $(".ready").html("じゃんけん…");
       let playerChoice = $(this).attr('value');
-      $(this).css("background-color", "red");
+      $(this).addClass("is-select");
       npcJanken();
       let npcChoice = $(".battle-btn.npc").attr('value');
-
+      $(".ready").html("ぽん！");
       $(".battle-btn.npc").addClass("is-active");
+
       let damage = battleJudge(playerChoice, npcChoice);
-      if (damage < 0) {
-        plHP += damage;
-        $(".hp-num__player").text(plHP);
-        if (plHP === 0) {
-          $(".result").html("YOU LOSE").css("color", "navy");
+      // 一定の遅延後にダメージ計算を行う
+      setTimeout(() => {
+        calcDamage(damage);
+        // ここで次のターンに進む
+        if (plHP > 0 && npcHP > 0) {
+          $(".ready").html("じゃんけん…"); // メッセージを戻す
+          $(".battle-btn.player").removeClass("is-select");
+          $(".npc-choice__inner").html("");
         }
-      } else if (damage > 0) {
-        npcHP -= damage;
-        $(".hp-num__npc").text(npcHP);
-        if (npcHP === 0) {
-          $(".result").html("YOU WIN").css("color", "red");
-        }
-      }
+      }, 1500); // 1秒の遅延
     }
   });
 });

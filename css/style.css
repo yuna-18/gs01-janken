@@ -106,6 +106,7 @@ main .bg .bg__container {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
+  z-index: 100;
 }
 .dialog__container.is-active {
   opacity: 1;
@@ -285,7 +286,7 @@ main .bg .bg__container {
 .battle__container .hp__inner.player p:nth-of-type(1) {
   margin-top: 25px;
 }
-.battle__container .hp__inner.player p.hp-num__npc {
+.battle__container .hp__inner.player p.hp-num__player {
   font-size: 40px;
 }
 .battle__container .btn__outer {
@@ -302,14 +303,14 @@ main .bg .bg__container {
   visibility: visible;
   opacity: 1;
 }
-.battle__container .btn__outer.is-select {
-  background-color: red;
-}
 .battle__container .btn__outer .battle-btn {
   width: 200px;
   padding: 30px;
   background-color: #fff;
   border-radius: 50%;
+}
+.battle__container .btn__outer .battle-btn.is-select {
+  background-color: red;
 }
 .battle__container .btn__outer .battle-btn:hover {
   background-color: red;
@@ -323,9 +324,20 @@ main .bg .bg__container {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.text__container.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
 }
 .text__container p {
   font-size: 110px;
   font-weight: bold;
+}
+.text__container p.ready {
+  font-size: 100px;
 }/*# sourceMappingURL=style.css.map */

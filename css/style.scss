@@ -114,6 +114,7 @@ main {
   opacity: 0;
   visibility: hidden;
   transition: .3s;
+  z-index: 100;
 
   &.is-active {
     opacity: 1;
@@ -315,7 +316,7 @@ main {
         margin-top: 25px;
       }
       
-      &.hp-num__npc {
+      &.hp-num__player {
         font-size: 40px;
       }
     }
@@ -336,15 +337,16 @@ main {
       opacity: 1;
     }
     
-    &.is-select {
-      background-color: red;
-    }
-
+    
     .battle-btn {
       width: 200px;
       padding: 30px;
       background-color: #fff;
       border-radius: 50%;
+      
+      &.is-select {
+        background-color: red;
+      }
       
       &:hover {
         background-color: red;
@@ -362,10 +364,22 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: .3s;
+  }
   
   p {
     font-size: 110px;
     font-weight: bold;
+    
+    &.ready {
+      font-size: 100px;
+    }
   }
 }
